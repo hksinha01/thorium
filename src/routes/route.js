@@ -118,8 +118,16 @@ votingStatus:false
                 
               }
      }
-     console.log(persons)
-   res.send( {data : persons ,status : true})
+     let finalArr = []
+     for(let i = 0 ;i < persons.length;i++)
+     {
+         if(persons[i].votingStatus === true)
+         {
+             finalArr.push(persons[i])
+         }
+     }
+     console.log(finalArr)
+   res.send( {data : finalArr ,status : true})
     
  })
 
