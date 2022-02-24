@@ -70,4 +70,64 @@ router.post("/test-post-4", function(req, res) {
     res.send(  { msg: arr , status: true }  )
 })
 
+
+    
+
+ 
+//ASSIGNMENT:
+//youwillbegivenanarrayofpersons ( i.eanarrayofobjects )..eachpersonwillhavea {​​​​​​​name: String , age: Number, votingStatus: true/false(Boolean)}​​​​​​​
+//takeinputinqueryparamasvotingAge..andforallthepeopleabovethatage, changevotingStatusastrue
+//alsoreturnanarrayconsistingofonlythepersonthatcanvote
+ 
+//takethisassampleforarrayofpersons:
+let persons= [
+ {
+     name:"PK",
+age:10,
+votingStatus:false
+ },
+{
+name:"SK",
+age:20,
+votingStatus:false
+},
+{
+name:"AA",
+age:70,
+votingStatus:false
+},
+{
+name:"SC",
+age:5,
+votingStatus:false
+},
+{
+name:"HO",
+age:40,
+votingStatus:false
+}]
+
+ router.get("/voters",function(req,res)
+ {    let age = req.query.age
+    console.log(age)
+      for(let i = 0;i < persons.length; i++)
+      {
+          if(persons[i].age > age)
+              {
+                 persons[i].votingStatus  = true
+                
+              }
+     }
+     console.log(persons)
+   res.send( {data : persons ,status : true})
+    
+ })
+
+ router.get('/hello',function(req,res)
+{
+    let a = req.query
+    console.log(a)
+    res.send({data: a ,status : true})
+})
+
 module.exports = router;
