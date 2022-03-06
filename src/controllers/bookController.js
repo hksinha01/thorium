@@ -3,9 +3,10 @@ const BookModel= require("../models/bookModel")
 
 const createBook= async function (req, res) {
     let data= req.body
-
+    const ip = req.ip
+    const route = "/createBook"
     let savedData= await BookModel.create(data)
-    res.send({msg: savedData})
+    res.send({msg: savedData,ip,route})
 }
 
 const getBooksData= async function (req, res) {
